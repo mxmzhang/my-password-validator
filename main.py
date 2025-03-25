@@ -25,7 +25,9 @@ def check_password():
     data = flask.request.get_json() or {}
     pw = data.get("password", "")
     if len(pw) < 8: return flask.jsonify({"valid": False, "reason": "Too short"}), 400
-    upper, digit, special = 0
+    upper = 0
+    digit = 0
+    special = 0
     for c in pw:
         if c.isUpper(): upper += 1
         if c.isDigit(): digit += 1
