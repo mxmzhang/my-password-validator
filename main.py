@@ -29,8 +29,8 @@ def check_password():
     digit = 0
     special = 0
     for c in pw:
-        if c.isUpper(): upper += 1
-        if c.isDigit(): digit += 1
+        if c.isupper(): upper += 1
+        if c.isdigit(): digit += 1
         if c in "!@#$%^&*": special += 1
     if upper < 2: return flask.jsonify({"valid": False, "reason": "Not enough uppercase letters"}), 400
     if digit < 2: return flask.jsonify({"valid": False, "reason": "Not enough digits"}), 400
